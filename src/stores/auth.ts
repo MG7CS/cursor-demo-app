@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface AuthState {
   isAuthenticated: boolean;
+  isLoading: boolean;
   user: any | null;
   initAuth: () => Promise<void>;
   login: (user: any) => void;
@@ -12,11 +12,34 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: false,
+  isLoading: true,
   user: null,
   initAuth: async () => {
-    // Add your initialization logic here (e.g., check local storage for tokens)
-    set({ isAuthenticated: false, user: null });
+    try {
+      const user = await AsyncStorage.getItem('user');
+      if (user) {
+        set({ isAuthenticated: true, user: JSON.parse(user) });
+      }
+    } catch (error) {
+      console.error('Auth initialization error:', error);
+    } finally {
+      set({ isLoading: false });
+    }
   },
-  login: (user) => set({ isAuthenticated: true, user }),
-  logout: () => set({ isAuthenticated: false, user: null }),
+  login: async (user) => {
+    try {
+      await AsyncStorage.setItem('user', JSON.stringify(user));
+      set({ isAuthenticated: true, user });
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  },
+  logout: async () => {
+    try {
+      await AsyncStorage.removeItem('user');
+      set({ isAuthenticated: false, user: null });
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  },
 })); 

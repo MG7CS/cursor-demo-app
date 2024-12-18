@@ -13,34 +13,30 @@ const loginSchema = z.object({
 
 export default function LoginScreen() {
   const router = useRouter();
+  const login = useAuthStore((state) => state.login);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
   const [isLoading, setIsLoading] = useState(false);
-  const login = useAuthStore((state) => state.login);
 
   async function handleLogin() {
     try {
       setIsLoading(true);
-      setErrors({});
-      loginSchema.parse({ email, password });
-
-      // Simulate API call
-      const mockUser = { id: '1', email, name: 'Test User', region: 'US' };
-      login(mockUser);
-
-      // Navigate to the home screen
-      router.replace('../(tab)/index'); // Update this path to your actual home screen route
+      setErrors({}); // Clear any previous errors
+      
+      // Development bypass - no validation needed
+      const bypassUser = {
+        id: 'dev-123',
+        email: 'dev@example.com',
+        name: 'Dev User',
+      };
+      
+      await login(bypassUser);
+      router.replace('/(tabs)');
+      
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        const fieldErrors = error.errors.reduce((acc, curr) => {
-          acc[curr.path[0]] = curr.message;
-          return acc;
-        }, {} as any);
-        setErrors(fieldErrors);
-      } else {
-        Alert.alert('Error', 'Failed to log in. Please try again.');
-      }
+      console.error('Login error:', error);
+      Alert.alert('Error', 'Failed to log in. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -93,7 +89,6 @@ export default function LoginScreen() {
           onPress={handleLogin}
           variant="primary"
           isLoading={isLoading}
-          disabled={!email || !password}
           accessibilityLabel="Log in button"
         />
 
