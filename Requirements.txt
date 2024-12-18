@@ -1,0 +1,62 @@
+GAMO is an interactive mobile and web-based app designed to help users prepare for their driver’s license tests by offering engaging, gamified learning tools.
+
+1. Onboarding Pages
+	•	Welcome Screen: Introduction to the app’s purpose and features.
+	•	Sign-Up/Log-In Page: Options for email, social login (Google, Apple, Facebook).
+	•	Profile Setup: User details (e.g., name, age, location/region for license type).
+	•	App Tour (Optional): Walkthrough of main features with swipeable screens.
+2. Home Page
+	•	Overview of the user’s current progress.
+	•	Quick access to:
+	•	Resume the last lesson or test.
+	•	Daily challenges or goals.
+	•	Notifications for streaks, achievements, and reminders.
+3. Lessons Page
+	•	List of topic-based lessons structured into modules (e.g., Road Signs, Traffic Rules, Safety Tips).
+	•	Progress tracker for each lesson/module.
+	•	Individual Lesson View:
+	•	Text-based content with images/animations.
+	•	Navigation between topics within a module.
+4. Practice Tests Page
+	•	Test Overview Screen:
+	•	Options for full-length tests or topic-based quizzes.
+	•	Regional customization (e.g., DMV-style test).
+	•	Test Screen:
+	•	Displays questions with multiple-choice options.
+	•	Timer (optional) to simulate real test conditions.
+	•	Test Results Screen:
+	•	Summary of score, accuracy, and time taken.
+	•	Review of correct/incorrect answers with explanations.
+5. Progress Page
+	•	Performance Dashboard:
+	•	Charts/graphs showing study progress and test scores over time.
+	•	Streak tracking (e.g., days studied consecutively).
+	•	Suggested lessons or tests based on weak areas.
+6. Achievements Page
+	•	List of earned badges and milestones (e.g., “Completed First Module”).
+	•	Progress toward unlocking new achievements.
+	•	Leaderboard (optional): Compare scores with friends or other users.
+7. Profile Page
+	•	User details and settings.
+	•	View/edit region preferences (e.g., country-specific driving tests).
+	•	Subscription status (e.g., free/premium).
+	•	Activity summary (e.g., total lessons completed, hours studied).
+8. Settings Page
+	•	Manage app preferences:
+	•	Notification toggles (e.g., reminders, streak alerts).
+	•	Theme options (e.g., dark mode).
+	•	Language selection for localization.
+	•	Account management (e.g., password reset, log out).
+9. Payment/Subscription Page
+	•	Overview of free vs. premium features.
+	•	Pricing tiers and benefits.
+	•	Payment integration for in-app purchases (Google Play/Apple App Store).
+10. Offline Content Management Page
+	•	Manage downloaded lessons/tests.
+	•	Toggle for auto-syncing progress when online.
+11. Help & Support Page
+	•	FAQs about the app, lessons, and tests.
+	•	Contact Support: Email or in-app messaging.
+	•	Terms and Conditions, Privacy Policy links.
+
+This structure ensures the app is user-friendly, engaging, and tailored to its primary purpose of driver’s license test preparation. Each page can be designed with smooth navigation and responsive design for both Android and iOS.
